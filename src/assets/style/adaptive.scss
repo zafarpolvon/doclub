@@ -1,0 +1,99 @@
+@media (max-width: 768px) {
+}
+
+@media (max-width: 480px) {
+  .home {
+    padding: 10px 15px !important;
+  }
+  .sidebar__container {
+    display: none;
+  }
+  .sidebar__open {
+    margin-left: 0px !important;
+  }
+  .personal__box-12 {
+    width: 180px;
+  }
+  .personal__box {
+    padding: 15px !important;
+  }
+  .referral__box {
+    padding: 15px !important;
+  }
+  .personal__box-10 {
+    .personal__box-12 {
+      .img-3 {
+        width: 28px !important;
+      }
+    }
+  }
+  .modules__box-2 {
+    padding: 15px !important;
+  }
+  .navigation__item {
+    padding: 15px !important;
+  }
+  .rating__box {
+    padding: 15px !important;
+  }
+  .rating__box-name {
+    white-space: pre-line;
+  }
+  .eventbar__container {
+    margin-right: 15px !important;
+    margin-left: 15px !important;
+    padding: 25px 15px !important;
+  }
+  .event-container {
+    padding: 15px !important;
+  }
+  .stories__container {
+    position: relative;
+    box-sizing: border-box;
+    &-box {
+      display: flex;
+      overflow-x: scroll;
+      scroll-padding: 0 50%;
+      scroll-snap-type: x mandatory;
+      gap: 1rem;
+    }
+    &-item {
+      scroll-snap-align: center;
+      display: contents;
+      margin-right: 3rem;
+      & img {
+        min-width: 100px !important;
+        min-height: 100px !important;
+        height: 100px !important;
+        object-fit: cover;
+      }
+    }
+  }
+  .navbar__name {
+    display: none;
+  }
+  .navbar__notif img {
+    width: 20px !important;
+    height: 20px !important;
+  }
+  .navbar__image img {
+    width: 32px !important;
+    height: 32px !important;
+  }
+  .navbar__info {
+    display: flex !important;
+    width: 100% !important;
+  }
+  .navbar__container {
+    padding: 15px 15px !important;
+  }
+  .mobile__menu {
+    display: block !important;
+  }
+  .login__box {
+    padding: 20px 15px !important;
+  }
+  .select__box.opened {
+    min-width: 250px !important;
+  }
+}

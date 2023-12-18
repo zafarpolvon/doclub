@@ -1,0 +1,20 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&family=Ubuntu:wght@500&display=swap");
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+@media (max-width: 768px) {
+  .responsive-layout {
+    /* Styles for screens up to 768px wide */
+  }
+}
+
+@media (max-width: 480px) {
+  .responsive-layout {
+    /* Styles for screens up to 480px wide */
+  }
+}
