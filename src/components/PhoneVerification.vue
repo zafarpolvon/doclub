@@ -1,6 +1,7 @@
 <template>
   <div>
     {{ state.code }}
+    {{ state.smsStatus }}
     {{ props.verified }}
     {{ state.code.join("") == props.verified }}
     <div class="verification__title" v-if="state.smsStatus === 'sended'">
@@ -27,7 +28,7 @@
         >
           <input
             v-model="state.code[0]"
-            @keydown="(event) => handleKeyDown(0, event)"
+            @input="(event) => handleInput(0, event)"
             max="9"
             min="0"
             maxlength="1"
@@ -47,7 +48,7 @@
         >
           <input
             v-model="state.code[1]"
-            @keydown="(event) => handleKeyDown(1, event)"
+            @input="(event) => handleInput(1, event)"
             type="tel"
             max="9"
             min="0"
@@ -67,7 +68,7 @@
         >
           <input
             v-model="state.code[2]"
-            @keydown="(event) => handleKeyDown(2, event)"
+            @input="(event) => handleInput(2, event)"
             type="tel"
             max="9"
             min="0"
@@ -87,7 +88,7 @@
         >
           <input
             v-model="state.code[3]"
-            @keydown="(event) => handleKeyDown(3, event)"
+            @input="(event) => handleInput(3, event)"
             type="tel"
             max="9"
             min="0"
@@ -113,6 +114,25 @@ const state = reactive({
   smsStatus: "sended",
   code: Array(4).fill(""),
 });
+
+const handleInput = (index, event) => {
+  if (event.target.value === "" && index > 0) {
+    event.preventDefault();
+    const prevInput = document.querySelector(
+      `.verification__container-item:nth-of-type(${index}) input`
+    );
+    prevInput && prevInput.focus();
+  } else if (index < state.code.length - 1 && event.target.value !== "") {
+    const nextInput = document.querySelector(
+      `.verification__container-item:nth-of-type(${index + 2}) input`
+    );
+    nextInput && nextInput.focus();
+  }
+
+  if (index === state.code.length - 1) {
+    checkVerificationCode();
+  }
+};
 
 const handleKeyDown = (index, event) => {
   if (event.key === "Backspace" && state.code[index] === "") {
