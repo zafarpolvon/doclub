@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkdoclub"]=self["webpackChunkdoclub"]||[]).push([[893],{1893:function(u,n,r){r.r(n),r.d(n,{default:function(){return l}});var e=r(3396);function t(u,n){const r=(0,e.up)("router-view");return(0,e.wg)(),(0,e.iD)("div",null,[(0,e.Wm)(r)])}var c=r(89);const o={},i=(0,c.Z)(o,[["render",t]]);var l=i}}]);
+//# sourceMappingURL=893.5e3ec1c2.js.map
