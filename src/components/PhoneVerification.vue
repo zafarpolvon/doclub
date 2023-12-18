@@ -1,9 +1,5 @@
 <template>
   <div>
-    {{ state.code }}
-    {{ state.smsStatus }}
-    {{ props.verified }}
-    {{ state.code.join("") == props.verified }}
     <div class="verification__title" v-if="state.smsStatus === 'sended'">
       The code was sent. <a @click="changeNumber">Change the number</a>
     </div>
@@ -133,28 +129,6 @@ const handleInput = (index, event) => {
     checkVerificationCode();
   }
 };
-
-const handleKeyDown = (index, event) => {
-  if (event.key === "Backspace" && state.code[index] === "") {
-    event.preventDefault();
-    if (index > 0) {
-      state.code[index - 1] = "";
-      const prevInput = document.querySelector(
-        `.verification__container-item:nth-of-type(${index}) input`
-      );
-      prevInput && prevInput.focus();
-    }
-  } else if (index < state.code.length - 1 && state.code[index] !== "") {
-    const nextInput = document.querySelector(
-      `.verification__container-item:nth-of-type(${index + 2}) input`
-    );
-    nextInput && nextInput.focus();
-  }
-
-  if (index === state.code.length - 2) {
-    checkVerificationCode();
-  }
-};
 const childMethod = () => {
   state.code = Array(4).fill("");
   emit("resetValue");
@@ -162,7 +136,6 @@ const childMethod = () => {
 
 const checkVerificationCode = () => {
   setTimeout(() => {
-    console.log(props.verified, "props.verified");
     const enteredCode = state.code.join("");
     emit("codeUpdated", enteredCode);
     if (enteredCode == props.verified) {
